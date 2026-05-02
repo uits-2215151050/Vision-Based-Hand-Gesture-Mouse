@@ -1,0 +1,12 @@
+customtkinter
+opencv-python
+mediapipe
+pyautogui
+pynput
+Pillow
+Flask
+qrcode[pil]
+pyinstaller
+tensorflow
+scikit-learn
+adb-shell

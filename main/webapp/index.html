@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>MagicHand - Mobile Camera</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">✋</span>
+                <h1>MagicHand</h1>
+            </div>
+            <div class="status-indicator" id="statusIndicator">
+                <span class="status-dot"></span>
+                <span class="status-text">Disconnected</span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Video Preview -->
+            <div class="video-container">
+                <video id="videoElement" autoplay playsinline></video>
+                <canvas id="canvas" style="display: none;"></canvas>
+                <div class="overlay" id="overlay">
+                    <div class="overlay-content">
+                        <div class="camera-icon">📷</div>
+                        <h2>Camera Access Required</h2>
+                        <p>Please allow camera access to continue</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="controls">
+                <div class="control-group">
+                    <label for="cameraSelect">Camera</label>
+                    <div class="input-group">
+                        <select id="cameraSelect" class="select-input">
+                            <option value="">Detecting cameras...</option>
+                        </select>
+                        <button id="switchCamBtn" class="btn-icon-only" title="Switch Camera">↻</button>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label for="qualitySelect">Quality</label>
+                    <select id="qualitySelect" class="select-input">
+                        <option value="qvga">Fastest (320x240) - Low Latency</option>
+                        <option value="vga">VGA (640x480) - Standard</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label for="fpsSelect">Frame Rate</label>
+                    <select id="fpsSelect" class="select-input">
+                        <option value="15">15 FPS - Battery Saver</option>
+                        <option value="24">24 FPS - Balanced</option>
+                        <option value="30" selected>30 FPS - Smooth</option>
+                    </select>
+                </div>
+
+                <button id="startButton" class="btn btn-primary">
+                    <span class="btn-icon">▶</span>
+                    Start Streaming
+                </button>
+
+                <button id="stopButton" class="btn btn-secondary" style="display: none;">
+                    <span class="btn-icon">⏹</span>
+                    Stop Streaming
+                </button>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats" id="stats">
+                <div class="stat-item">
+                    <span class="stat-label">FPS</span>
+                    <span class="stat-value" id="fpsValue">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Latency</span>
+                    <span class="stat-value" id="latencyValue">0ms</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Sent</span>
+                    <span class="stat-value" id="sentValue">0</span>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Keep this page open while using MagicHand</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
